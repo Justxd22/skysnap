@@ -6,7 +6,6 @@ import { ModeToggle } from "@/components/ui/ModeToggle"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const dynamic = "force-dynamic"
 
 export default function RootLayout({
   children,

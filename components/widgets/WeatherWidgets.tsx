@@ -193,7 +193,7 @@ export default function WeatherWidgets({
         className="relative order-8 col-span-2 h-[15rem] overflow-hidden overscroll-contain p-0 md:p-0 xl:col-span-3 rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6"
       >
         <Image
-          src="/dem.webp"
+          src={`/images/dem.webp`}
           alt="Description of image"
           layout="fill"
           objectFit="cover"
