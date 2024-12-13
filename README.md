@@ -1,5 +1,12 @@
 # SkySnap
-Full Mini Weather Station
+Full Blown Mini Weather Station using ESP32 & Nextjs
+
+![demo](.res/image.png)
+
+Hardware code: [SkySnap_ESP](https://github.com/Justxd22/SkySnap_ESP)
+
+# Live
+ - [skysnap-eosin.vercel.app](https://skysnap-eosin.vercel.app) 
 
 
 ## criedts
