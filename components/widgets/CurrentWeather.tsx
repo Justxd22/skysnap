@@ -45,7 +45,7 @@ export default function CurrentWeather({ data }: CurrentWeatherProps) {
         </div>
       </div>
       <div className="flex justify-center py-7 text-8xl font-bold md:py-10">
-        {data.temp.now}&deg;
+        {parseFloat((data.temp.now).toFixed(3))}&deg;
       </div>
       <div>
         <IconComponent
@@ -53,8 +53,8 @@ export default function CurrentWeather({ data }: CurrentWeatherProps) {
         />
         {/* <div className="font-semibold">{data.weather[0].main}</div> */}
         <div className="flex gap-2 dark:text-neutral-500">
-          <span>H: {data.temp.max}&deg;</span>
-          <span>L: {data.temp.min}&deg;</span>
+          <span>H: {parseFloat((data.temp.max).toFixed(3))}&deg;</span>
+          <span>L: {parseFloat((data.temp.min).toFixed(3))}&deg;</span>
         </div>
       </div>
     </Card>

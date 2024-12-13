@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "buildESP": "next build && node optimize.js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,6 +23,8 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
+    "firebase": "^11.0.2",
+    "fs-extra": "^11.2.0",
     "lucide-react": "^0.288.0",
     "mapbox-gl": "^2.15.0",
     "next": "^14.0.0",
