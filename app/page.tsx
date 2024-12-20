@@ -33,7 +33,13 @@ export default function Home() {
 
   useEffect(() => {
     // Fetch hourly and ten-day forecast only once
-
+      const images = [
+        "/images/back1.jpg",
+        "/images/back2.jpg",
+        "/images/back3.jpg",
+      ];
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+      document.body.style.backgroundImage = `url('${randomImage}')`;
     // Poll live weather data every second
     const intervalId = setInterval(fetchLiveWeather, 1000);
 

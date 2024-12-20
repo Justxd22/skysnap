@@ -24,6 +24,7 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "firebase": "^11.0.2",
+    "framer-motion": "^11.15.0",
     "fs-extra": "^11.2.0",
     "lucide-react": "^0.288.0",
     "mapbox-gl": "^2.15.0",

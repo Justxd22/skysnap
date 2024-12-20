@@ -6,6 +6,20 @@ html,
 body {
   display: relative;
   scrollbar-gutter: stable;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  opacity: 1;
 }
 
 body[style] {
@@ -90,4 +104,21 @@ body[style] {
 
 canvas {
   outline: none;
+}
+
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+  animation-fill-mode: forwards; /* Ensures animation persists after completion */
 }

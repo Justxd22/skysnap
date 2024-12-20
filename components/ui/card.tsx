@@ -1,20 +1,55 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
+
+const getRandomStartPosition = () => {
+  // Smaller range for quicker travel distance
+  const randomX = Math.floor(Math.random() * 60 - 30)
+  const randomY = Math.floor(Math.random() * 60 - 30)
+  return { x: randomX, y: randomY }
+}
 
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6",
-      className
-    )}
-    {...props}
-  />
-))
+>(({ className, ...props }, ref) => {
+  const startPosition = React.useMemo(() => getRandomStartPosition(), [])
+  
+  const fadeUpVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: startPosition.x,
+      y: startPosition.y,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.3,  // Faster duration
+        ease: [0.23, 1, 0.32, 1], // Custom cubic bezier for snappier feel
+        opacity: { duration: 0.2 } // Fade in even faster
+      }
+    }
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate="visible"
+      variants={fadeUpVariants}
+      className={cn(
+        "relative rounded-xl border bg-black/50 backdrop-blur-lg shadow-lg p-4 text-card-foreground md:p-6",
+        className
+      )}
+      {...props}
+    />
+  )
+})
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<
