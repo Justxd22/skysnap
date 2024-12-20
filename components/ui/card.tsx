@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
+import { motion, HTMLMotionProps } from "framer-motion"
 
 const getRandomStartPosition = () => {
   // Smaller range for quicker travel distance
@@ -12,33 +12,33 @@ const getRandomStartPosition = () => {
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
+  HTMLMotionProps<"div"> & React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
   const startPosition = React.useMemo(() => getRandomStartPosition(), [])
-  
+
   const fadeUpVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       x: startPosition.x,
       y: startPosition.y,
-      scale: 0.95
+      scale: 0.95,
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.3,  // Faster duration
-        ease: [0.23, 1, 0.32, 1], // Custom cubic bezier for snappier feel
-        opacity: { duration: 0.2 } // Fade in even faster
-      }
-    }
+        duration: 0.3,
+        ease: [0.23, 1, 0.32, 1],
+        opacity: { duration: 0.2 },
+      },
+    },
   }
-
   return (
     <motion.div
-      ref={ref}
+    // @ts-ignore
+    ref={ref}
       initial="hidden"
       animate="visible"
       variants={fadeUpVariants}
