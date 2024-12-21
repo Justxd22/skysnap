@@ -3,6 +3,11 @@ interface CompassProps {
   deg: number
 }
 export default function Compass({ speed, deg }: CompassProps) {
+  let degg = 0;
+  if (deg == 90) degg = 180;
+  else if (deg == 270) degg = 0;
+  else if (deg == 0) degg = 270;
+  else if (deg == 180) degg = 90;
   return (
     <>
       <div className="relative -mt-5 flex h-[10rem] w-[10rem] items-center justify-center md:-mt-5 md:h-[9rem] md:w-[9rem]">
@@ -439,7 +444,7 @@ export default function Compass({ speed, deg }: CompassProps) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 331 331"
-          style={{ transform: `rotate(${deg}deg)` }}
+          style={{ transform: `rotate(${degg}deg)` }}
           className="absolute transition-transform ease-in-out will-change-transform dark:invert"
         >
           <path d="M163 103V57.785c-6.817-1.185-12-7.13-12-14.285 0-8.008 6.492-14.5 14.5-14.5S180 35.492 180 43.5c0 7.155-5.183 13.1-12 14.285V103h-5zm2.5-50a9.5 9.5 0 1 0 0-19 9.5 9.5 0 0 0 0 19zm0 250L151 274h12v-47h5l-.001 47H180l-14.5 29z" />
